@@ -47,7 +47,10 @@ Use the copy function below to do the following:
 
 function copy(arr){
     let copyOgFlavors = []
-    return copyOgFlavors.push(arr)
+    for( let i=0; i < arr.length; i++){
+        copyOgFlavors.push(arr[i])
+    }
+    return copyOgFlavors
 }    
 
 console.log(copy(originalFlavors))
@@ -66,12 +69,7 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 
 
 function is31Flavors(arr){
-   if(arr.length == 31){
-       return true
-   }
-   else {
-       return false
-   }
+   return arr.length === 31
 }
 console.log(is31Flavors(originalFlavors))
 
@@ -89,7 +87,8 @@ Use the addFlavor function below to do the following:
 
 
 function addFlavor(arr, flavor){
-   return arr.push(flavor)
+    arr.unshift(flavor)
+   return arr
 }
 
 console.log(addFlavor(originalFlavors,"Rainbow Sherbert"))
@@ -144,11 +143,13 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(arr, flavor){
+    let i = arr.indexOf(flavor)
+    arr.splice(i,1)
+    return arr
 }
 
-
+console.log(removeFlavorByName(originalFlavors,"Rocky Road"))
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -170,8 +171,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(arr, string){
+    let newFlavors = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i].includes(string)){
+            newFlavors.push(arr[i])
+        }
+    }
+    return newFlavors
 }
 
 
